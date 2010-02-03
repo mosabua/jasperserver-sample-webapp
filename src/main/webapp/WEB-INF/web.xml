@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    
+    <context-param>
+        <param-name>webServiceUrl</param-name>
+        <param-value>http://127.0.0.1:8080/jasperserver/services/repository</param-value>
+    </context-param>
+    <context-param>
+        <param-name>reportSchedulingWebServiceUrl</param-name>
+        <param-value>http://127.0.0.1:8080/jasperserver/services/ReportScheduler</param-value>
+    </context-param>
+    <servlet>
+		<servlet-name>ImageServlet</servlet-name>
+		<servlet-class>net.sf.jasperreports.j2ee.servlets.ImageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContentResourceDataServlet</servlet-name>
+        <servlet-class>com.jaspersoft.jasperserver.sample.ContentResourceDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+		<servlet-name>ImageServlet</servlet-name>
+		<url-pattern>/image</url-pattern>
+    </servlet-mapping>     
+        
+    <servlet-mapping>
+        <servlet-name>ContentResourceDataServlet</servlet-name>
+        <url-pattern>/content/*</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+	<welcome-file>
+            index.jsp
+        </welcome-file>
+    </welcome-file-list>
+</web-app>
